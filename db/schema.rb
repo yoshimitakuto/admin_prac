@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_14_035947) do
+ActiveRecord::Schema.define(version: 2023_05_14_125920) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
 
   create_table "custamers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -20,6 +32,14 @@ ActiveRecord::Schema.define(version: 2023_05_14_035947) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "last_name"
+    t.string "first_name"
+    t.string "furigana_last_name"
+    t.string "furigana_first_name"
+    t.string "customer_adress"
+    t.integer "post_code"
+    t.integer "telephone_number"
+    t.integer "withdrawal_flag"
     t.index ["email"], name: "index_custamers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_custamers_on_reset_password_token", unique: true
   end
