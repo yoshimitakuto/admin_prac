@@ -38,3 +38,5 @@ Custamer.create!(
 
 p '==================== admin create ===================='
 Admin.create!(email: "admin@gmail.com", password: "pppppp")
+
+#Add seed data
